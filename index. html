@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Brahimtyy ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:linear-gradient(135deg,#ffdde1,#ee9ca7);
+    text-align:center;
+    overflow-x:hidden;
+}
+
+.app{
+    width:95%;
+    max-width:420px;
+    margin:20px auto;
+    background:white;
+    border-radius:25px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+.header{
+    background:#ff4d88;
+    color:white;
+    padding:15px;
+    font-weight:bold;
+    font-size:22px;
+}
+
+#lockScreen{
+    padding:20px;
+}
+
+.finger{
+    font-size:60px;
+    animation:pulse 1s infinite;
+    cursor:pointer;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+input{
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    text-align:center;
+    width:80%;
+    margin-top:10px;
+}
+
+button{
+    padding:10px 15px;
+    border:none;
+    border-radius:10px;
+    background:#ff4d88;
+    color:white;
+    margin-top:10px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#content{
+    display:none;
+    padding:15px;
+}
+
+.message{
+    background:#fff5f8;
+    padding:15px;
+    border-radius:15px;
+    margin-top:10px;
+    line-height:1.9;
+    text-align:right;
+    min-height:120px;
+    white-space:pre-line;
+}
+
+.timeline{
+    background:#fff0f5;
+    padding:10px;
+    margin-top:10px;
+    border-radius:15px;
+    text-align:right;
+}
+
+.timeline div{
+    padding:5px;
+    border-right:3px solid #ff4d88;
+    margin:5px 0;
+}
+
+.heart{
+    position:fixed;
+    color:#ff4d88;
+    animation:fall 4s linear infinite;
+    pointer-events:none;
+    z-index:999;
+    opacity:0.8;
+}
+
+@keyframes fall{
+    0%{
+        transform:translateY(-10%);
+    }
+
+    100%{
+        transform:translateY(110vh);
+        opacity:0;
+    }
+}
+
+/* العداد */
+
+.modernCounter{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:15px;
+    flex-wrap:wrap;
+}
+
+.timeBox{
+    background:linear-gradient(135deg,#ff4d88,#ff99bb);
+    color:white;
+    width:80px;
+    padding:12px 5px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(255,77,136,0.3);
+    animation:pulseBox 1.5s infinite;
+}
+
+.timeBox span{
+    display:block;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.timeBox p{
+    margin:5px 0 0;
+    font-size:14px;
+}
+
+@keyframes pulseBox{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.05);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+#gallery{
+    margin-top:15px;
+}
+
+.photoBox{
+    background:#fff5f8;
+    padding:10px;
+    border-radius:20px;
+    margin-bottom:15px;
+}
+
+.photoBox img{
+    width:100%;
+    border-radius:15px;
+}
+
+.photoBox p{
+    color:#ff4d88;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/4xfhvx.mp3" type="audio/mpeg">
+</audio>
+
+<div class="app">
+
+<div class="header">
+❤️ For Brahimtyy
+</div>
+
+<div id="lockScreen">
+
+    <h3>افتح الموقع 💖</h3>
+
+    <div class="finger" onclick="fingerTap()">🔒</div>
+
+    <p id="fingerText">اضغط البصمة</p>
+
+    <input type="password" id="pass" placeholder="ادخل الباسورد">
+
+    <br>
+
+    <button onclick="unlock()">دخول</button>
+
+</div>
+
+<div id="content">
+
+<div class="modernCounter">
+
+    <div class="timeBox">
+        <span id="daysNum">0</span>
+        <p>يوم 💖</p>
+    </div>
+
+    <div class="timeBox">
+        <span id="hoursNum">0</span>
+        <p>ساعة 💞</p>
+    </div>
+
+    <div class="timeBox">
+        <span id="minutesNum">0</span>
+        <p>دقيقة 💗</p>
+    </div>
+
+    <div class="timeBox">
+        <span id="secondsNum">0</span>
+        <p>ثانية ❤️</p>
+    </div>
+
+</div>
+
+<h3>Made with love for Elkoty Moty Boty Bta3yy ❤️</h3>
+
+<div class="message" id="loveMsg"></div>
+
+<div class="timeline">
+
+<div>13/3/2025 — أول كلام ❤️</div>
+
+<div>15/3/2025 — أول مكالمة 📞</div>
+
+<div>17/3/2025 — يوم اعترافنا لبعض بحبنا 💖</div>
+
+<div>19/3/2025 — أول مرة توصلني فيها 🚗</div>
+
+<div>20/3/2025 — أول حضن 🤍</div>
+
+<div>2/4/2025 — أول خروجة 🌹</div>
+
+<div>30/1/2026 — خطوبة 💍✨</div>
+
+</div>
+
+<h3>📸 ذكرياتنا</h3>
+
+<input type="file" id="imgInput" accept="image/*" multiple>
+
+<input type="text" id="imgText" placeholder="اكتبي كلام للصورة">
+
+<button onclick="addPhoto()">إضافة ❤️</button>
+
+<div id="gallery"></div>
+
+<hr>
+
+<h3>💌 رسالة سرية</h3>
+
+<input type="password" id="secretPass" placeholder="الباسورد السري">
+
+<br>
+
+<button onclick="openSecret()">فتح الرسالة السرية</button>
+
+<div id="secretMessage" class="message" style="display:none;">
+
+كنت اول حد يلمسني واخر حد وكفايه ان نا بقيت جزء منك وكان جوايا حته منك ربنا يحفظك ليا وميحرمنيش منك يارب وابقا فبيتك قريب ❤️
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+let finger=false;
+
+/* البصمة */
+
+function fingerTap(){
+
+    finger=true;
+
+    navigator.vibrate(200);
+
+    document.getElementById("fingerText").innerHTML="تم ✔️";
+
+}
+
+/* فتح الموقع */
+
+function unlock(){
+
+    if(!finger){
+
+        alert("لازم البصمة الأول ❤️");
+
+        return;
+    }
+
+    if(document.getElementById("pass").value==="0811"){
+
+        document.getElementById("lockScreen").style.display="none";
+
+        document.getElementById("content").style.display="block";
+
+        startMessage();
+
+        document.getElementById("bgMusic").play();
+
+        /* قلوب كتير أول ما يفتح */
+
+        for(let i=0;i<150;i++){
+
+            let h=document.createElement("div");
+
+            h.className="heart";
+
+            let hearts=["❤️","💖","💗","💞","💕"];
+
+            h.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+
+            h.style.left=Math.random()*100+"vw";
+
+            h.style.top="-20px";
+
+            h.style.fontSize=(15 + Math.random()*30)+"px";
+
+            h.style.animation="fall 4s linear forwards";
+
+            document.body.appendChild(h);
+
+            setTimeout(()=>h.remove(),4000);
+
+        }
+
+    }else{
+
+        alert("غلط ❤️");
+
+    }
+
+}
+
+/* قفل الأغنية لما تخرجي */
+
+document.addEventListener("visibilitychange", ()=>{
+
+    let music=document.getElementById("bgMusic");
+
+    if(document.hidden){
+
+        music.pause();
+
+    }
+
+});
+
+/* العداد */
+
+function updateCounter(){
+
+    let startDate = new Date("2025-03-13T00:00:00");
+
+    let now = new Date();
+
+    let diff = now - startDate;
+
+    let seconds = Math.floor(diff / 1000);
+
+    let minutes = Math.floor(seconds / 60);
+
+    let hours = Math.floor(minutes / 60);
+
+    let days = Math.floor(hours / 24);
+
+    let h = hours % 24;
+
+    let m = minutes % 60;
+
+    let s = seconds % 60;
+
+    document.getElementById("daysNum").innerHTML = days;
+
+    document.getElementById("hoursNum").innerHTML = h;
+
+    document.getElementById("minutesNum").innerHTML = m;
+
+    document.getElementById("secondsNum").innerHTML = s;
+
+}
+
+setInterval(updateCounter,1000);
+
+updateCounter();
+
+/* الكتابة المتحركة */
+
+function typeWriter(text, element, i=0){
+
+    if(i < text.length){
+
+        if(text.charAt(i) === "\n"){
+
+            element.innerHTML += "<br>";
+
+        }else{
+
+            element.innerHTML += text.charAt(i);
+
+        }
+
+        setTimeout(()=>typeWriter(text, element, i+1),25);
+
+    }
+
+}
+
+/* الرسالة */
+
+function startMessage(){
+
+let text = `أنا مش عارفة أبدأ منين بس كل اللي جوايا ليك كبير أوي  
+يمكن الكلام مش هيقدر يوصف اللي جوا قلبي بس هحاول  
+
+أنا بحبك بجد مش مجرد كلام  
+أنا متعلقة بيك بكل تفاصيلك وبكل لحظة بينا  
+
+من أول يوم 13/3/2025 وكل حاجة بدأت تتغير جوايا  
+كل يوم كان بيعدي كان بيقربني منك أكتر  
+
+حتى في وقت الخناقات اللي بينا  
+عمري ما حسيت إنك شخص عادي أو هين  
+
+إنت بالنسبة لي مش مجرد حب  
+إنت أمان وونس وذكريات وحاجات كتير أوي صعب تتوصف  
+
+أنا عملت الموقع ده مخصوص عشانك  
+عشان يبقى حاجة تفضل موجودة بينا مهما حصل  
+
+لأن الشاتات ممكن تتمسح  
+والمكالمات ممكن تتنسي  
+بس الحاجة دي هتفضل موجودة  
+
+ولو في يوم الدنيا بعدتنا  
+هتفضل حاجة تفتكرنا وتجمعنا تاني  
+
+وكل ذكرى بينا كانت بداية لحاجة أجمل  
+
+أنا بحبك  
+وبتمنى دايمًا أكون جنبك مهما حصل 💖`;
+
+let el=document.getElementById("loveMsg");
+
+el.innerHTML="";
+
+typeWriter(text, el);
+
+}
+
+/* القلوب */
+
+setInterval(()=>{
+
+    let h=document.createElement("div");
+
+    h.className="heart";
+
+    let hearts=["❤️","💖","💗","💞","💕"];
+
+    h.innerHTML=hearts[Math.floor(Math.random()*hearts.length)];
+
+    h.style.left=Math.random()*100+"vw";
+
+    h.style.fontSize=(15 + Math.random()*20)+"px";
+
+    document.body.appendChild(h);
+
+    setTimeout(()=>h.remove(),4000);
+
+},180);
+
+/* إضافة صور متعددة + حفظها */
+
+function addPhoto(){
+
+    let files = document.getElementById("imgInput").files;
+
+    let text = document.getElementById("imgText").value;
+
+    if(files.length === 0){
+
+        alert("اختاري صورة ❤️");
+
+        return;
+    }
+
+    for(let i=0; i<files.length; i++){
+
+        let reader = new FileReader();
+
+        reader.onload = function(e){
+
+            let imageData = e.target.result;
+
+            let photo = {
+                img:imageData,
+                text:text
+            };
+
+            let photos = JSON.parse(localStorage.getItem("ourPhotos")) || [];
+
+            photos.push(photo);
+
+            localStorage.setItem("ourPhotos", JSON.stringify(photos));
+
+            showPhotos();
+
+        }
+
+        reader.readAsDataURL(files[i]);
+
+    }
+
+}
+
+/* عرض الصور */
+
+function showPhotos(){
+
+    let gallery=document.getElementById("gallery");
+
+    gallery.innerHTML="";
+
+    let photos = JSON.parse(localStorage.getItem("ourPhotos")) || [];
+
+    photos.forEach(photo=>{
+
+        let box=document.createElement("div");
+
+        box.className="photoBox";
+
+        box.innerHTML=`
+            <img src="${photo.img}">
+            <p>${photo.text}</p>
+        `;
+
+        gallery.appendChild(box);
+
+    });
+
+}
+
+/* تشغيل الصور أول ما الموقع يفتح */
+
+showPhotos();
+
+/* الرسالة السرية */
+
+function openSecret(){
+
+    let pass=document.getElementById("secretPass").value;
+
+    if(pass==="1234"){
+
+        document.getElementById("secretMessage").style.display="block";
+
+    }else{
+
+        alert("الباسورد غلط ❤️");
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
